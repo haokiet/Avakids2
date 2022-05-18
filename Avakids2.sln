@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avakids2", "Avakids2\Avakids2.csproj", "{3DFB038A-E4E3-4707-A6FB-7FF174F6A3CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DFB038A-E4E3-4707-A6FB-7FF174F6A3CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DFB038A-E4E3-4707-A6FB-7FF174F6A3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DFB038A-E4E3-4707-A6FB-7FF174F6A3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DFB038A-E4E3-4707-A6FB-7FF174F6A3CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCACBCD1-B724-45F0-A6F8-FEA19A3BB018}
+	EndGlobalSection
+EndGlobal

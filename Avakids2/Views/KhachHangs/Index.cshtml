@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Avakids2.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatKhau)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaKH }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaKH }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaKH })
+        </td>
+    </tr>
+}
+
+</table>

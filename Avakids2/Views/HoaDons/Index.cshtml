@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Avakids2.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChiGiaoHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDatHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayGiaoHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KhachHang.HoKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhanVien.TenDangNhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhanVien1.TenDangNhap)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChiGiaoHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDatHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiaoHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhachHang.HoKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhanVien.TenDangNhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhanVien1.TenDangNhap)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SoHD }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SoHD }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SoHD })
+        </td>
+    </tr>
+}
+
+</table>

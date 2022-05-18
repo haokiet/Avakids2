@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Avakids2.Models.SanPham>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 10);
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+<h2>@ViewBag.Title</h2>
+<button class="btn-single">
+    <i class="fa fa-plus-circle"></i>
+    @Html.ActionLink("Thêm", "Create")
+</button>
+<div id="gridContent">
+    @ViewBag.TB
+    @grid.GetHtml(
+        tableStyle: "table table-bordered table-hover",
+        footerStyle: "grid-footer",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.Numeric,
+        alternatingRowStyle: "alternatingRowStyle",
+          columns: new[]  // colums in grid
+         {
+        grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex, canSort: true, style: "STT"),
+        grid.Column("MaSP","Mã sản phẩm"), //the model fields to display
+        grid.Column("TenSP","Tên sản phẩm"),
+        grid.Column("MaHang","Hãng"),
+        grid.Column("MaNganh","Ngành hàng"),
+        grid.Column("SoLuong","Số lượng"),
+        grid.Column("Dongia","Đơn giá"),
+        grid.Column("Chức năng", format: @<text>
+    <a href="@Url.Action("Edit",new { id = item.MaNV})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Details",new { id = item.MaNV})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Delete",new { id = item.MaNV})" class="edit-btn">
+        <abbr title="Xóa dữ liệu">
+            <img src="/images/delete.png" width="20" height="20" />
+        </abbr>
+    </a>
+        </text> , canSort: true, style: "CN"),
+
+ }
+ )
+</div>

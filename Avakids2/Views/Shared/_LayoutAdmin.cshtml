@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Trang Quản Trị</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/x-icon" href="~/images/favicon.ico">
+    <link href="~/Content/Layout_Admin.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="header_top">
+            <nav>
+                <ul class="nav_links">
+                    <li><img class="logo" src="~/images/cover-kids.png" alt="logo" /></li>
+                    <li>@Html.ActionLink("Sản Phẩm", "Index", "SanPhams")</li>
+                    <li>@Html.ActionLink("Hãng", "Index", "Hangs")</li>
+                    <li>@Html.ActionLink("Ngành Hàng", "Index", "Nganhs")</li>
+                    <li>@Html.ActionLink("Nhân Viên", "Index", "NhanViens")</li>
+                    <li>@Html.ActionLink("Khách Hàng", "Index", "KhachHangs")</li>
+                    <li>@Html.ActionLink("Hoá Đơn", "Index", "HoaDons")</li>
+                    <li>@Html.ActionLink("Tìm kiếm", "", "")</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container-fluid">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year AVAKids </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+}
+
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: #ed1164;
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a abbr img {
+    cursor: pointer;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    background-color: #ed1164;
+    display: flex;
+    justify-content: center;
+}
+
+.header_top {
+    max-width: 1200px;
+    display: flex;
+    height: 40px;
+}
+
+
+.logo {
+    width: 100%;
+    cursor: pointer;
+}
+
+.nav_links {
+    margin-top: 3px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+    .nav_links li {
+        text-align: center;
+        width: 130px;
+    }
+
+        .nav_links li a {
+            font-family: Helvetica;
+            color: #fff;
+        }
+
+.container-fluid {
+    padding-top: 50px;
+    height: auto;
+    width: 100%;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-width: unset;
+}
+
+thead {
+    background-color: lightpink;
+}
+
+    thead a {
+        color: red;
+        pointer-events: none;
+    }
+
+.CN {
+    width: 100px;
+}
+
+button {
+    margin-top: 15px;
+    background-color: dodgerblue;
+    color: white;
+    font-size: 14px;
+    padding: 8px 0px;
+    border: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    opacity: 0.9;
+}
+
+    button:hover {
+        opacity: 1;
+    }
+
+        button:hover a {
+            color: #fff;
+        }
+
+.btn-form {
+    float: right;
+    margin-right: 50px;
+}
+
+.checkbox {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.btn-single {
+    margin-bottom: 10px;
+}

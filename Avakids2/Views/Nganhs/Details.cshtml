@@ -1,0 +1,26 @@
+﻿@model Avakids2.Models.Nganh
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nganh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNganh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNganh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNganh }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

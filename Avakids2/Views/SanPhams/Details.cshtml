@@ -1,0 +1,82 @@
+﻿@model Avakids2.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTaSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTaSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonViTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hang.TenHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hang.TenHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nganh.TenNganh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nganh.TenNganh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
