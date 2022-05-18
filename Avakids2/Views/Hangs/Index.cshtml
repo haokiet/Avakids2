@@ -1,51 +1,42 @@
 ﻿@model IEnumerable<Avakids2.Models.Hang>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách hãng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 10);
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
+<h2>@ViewBag.Title</h2>
+<button class="btn-single">
+    <i class="fa fa-plus-circle"></i>
+    @Html.ActionLink("Thêm", "Create")
+</button>
+<div id="gridContent">
+    @ViewBag.TB
+    @grid.GetHtml(
+        tableStyle: "table table-bordered table-hover",
+        footerStyle: "grid-footer",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.Numeric,
+        alternatingRowStyle: "alternatingRowStyle",
+          columns: new[]  // colums in grid
+         {
+        grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex, canSort: true, style: "STT"),
+        grid.Column("MaHang","Mã hãng"), //the model fields to display
+        grid.Column("TenHang","Tên hãng"),
+        grid.Column("DiaChi","Địa chỉ"),
+        grid.Column("Email","Địa chỉ Email"),
+        grid.Column("SoDT","Số điện thoại"),
+        grid.Column("Chức năng", format: @<text>
+    <a href="@Url.Action("Edit",new { id = item.MaHang})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Details",new { id = item.MaHang})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Delete",new { id = item.MaHang})" class="edit-btn">
+        <abbr title="Xóa dữ liệu">
+            <img src="/images/delete.png" width="20" height="20" />
+        </abbr>
+    </a>
+        </text>, canSort: true, style: "CN"),
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenHang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoDT)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenHang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoDT)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaHang }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaHang }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaHang })
-        </td>
-    </tr>
 }
-
-</table>
+)
+</div>
