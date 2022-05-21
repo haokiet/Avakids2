@@ -62,6 +62,20 @@ namespace Avakids2.Controllers
             ViewBag.MaNganh = new SelectList(db.Nganhs, "MaNganh", "TenNganh", sanPham.MaNganh);
             return View(sanPham);
         }
+        [HttpGet]
+
+        public ActionResult TimKiem_SanPham(string maSP = "", string tenSP = "")
+        {
+
+
+            ViewBag.maSP = maSP;
+            ViewBag.tenSP = tenSP;
+
+            var SP = db.SanPhams.SqlQuery("SANPHAM_TimKiem'" + maSP + "',N'" + tenSP + "'");
+            if (SP.Count() == 0)
+                ViewBag.TB = "Không có thông tin tìm kiếm.";
+            return View(SP.ToList());
+        }
 
         // GET: SanPhams/Edit/5
         public ActionResult Edit(string id)
