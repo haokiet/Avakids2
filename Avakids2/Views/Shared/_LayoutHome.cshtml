@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Layout_home.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header_main">
+            <section class="header_top">
+                <a href="/" class="header_logo"><img class="logo" src="~/images/cover-kids.png" alt="logo" /></a>
+                <form class="header_search_form rounded-pill input-group-text bg-white" action="/">
+                    <input type="search" class="form-control " placeholder="Tìm sản phẩm,..." />
+                    <button type="submit" class="btn">
+                        <i class="bi-search"></i>
+                    </button>
+                </form>
+                <div class="box_right text-center">
+                    <a href="/" class="header_cart p-1 text-white"> <i class="bi-bag"></i> Giỏ hàng</a>
+                    <a href="/" class="header_hotline p-1 text-white">
+                        Hotline (7h30 - 22h00)
+                        <br>
+                        <span class="text-warning fw-bold">1900 866 874</span>
+                    </a>
+                </div>
+            </section>
+            <section>
+                <nav class="header_menu">
+                    <ul class="list_menu text-uppercase text-white">
+                        <li>Sữa, thức uống</li>
+                        <li>tã</li>
+                        <li>thực phẩm</li>
+                        <li>mỹ phẩm, chăm sóc mẹ và bé</li>
+                        <li>làm đẹp</li>
+                        <li>đồ dùng</li>
+                        <li>thời trang</li>
+                        <li>đồ chơi, dụng cụ học tập</li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - AVAKids</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
