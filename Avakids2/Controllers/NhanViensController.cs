@@ -57,6 +57,20 @@ namespace Avakids2.Controllers
 
             return View(nhanVien);
         }
+        [HttpGet]
+
+        public ActionResult TimKiem_NhanVien(string maNV = "", string tenNV = "")
+        {
+
+
+            ViewBag.maNV = maNV;
+            ViewBag.tenNV = tenNV;
+
+            var NV = db.NhanViens.SqlQuery("NHANVIEN_TimKiem'" + maNV + "',N'" + tenNV + "'");
+            if (NV.Count() == 0)
+                ViewBag.TB = "Không có thông tin tìm kiếm.";
+            return View(NV.ToList());
+        }
 
         // GET: NhanViens/Edit/5
         public ActionResult Edit(string id)

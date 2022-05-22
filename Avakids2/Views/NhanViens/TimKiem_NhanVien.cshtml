@@ -1,8 +1,8 @@
-﻿@model List<Avakids2.Models.SanPham>
+﻿@model List<Avakids2.Models.NhanVien>
 @{
-    ViewBag.Title = "TimKiem_SanPham";
+    ViewBag.Title = "TimKiem_Nhân Viên";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenSP", rowsPerPage: 5);
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 5);
     @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
 
 }
@@ -43,33 +43,32 @@
         .tr, .td {
             text-align: left;
         }
-      
-       #tb{
-           color:blue;
-       }
+        #tb{
+            color:blue;
+        }
     </style>
 </head>
 <body>
     <div>
-        @using (Html.BeginForm("TimKiem_SanPham", "SanPhams", FormMethod.Get))
+        @using (Html.BeginForm("TimKiem_NhanVien", "NhanViens", FormMethod.Get))
         {
             @Html.AntiForgeryToken()
 
 
-            <table style="margin-left:500px" class="table1">
+            <table align="center" style="margin-left:500px" class="table1">
                 <tr>
                     <td>
-                        <div>Mã Sản Phẩm</div>
+                        <div>Mã Nhân Viên</div>
                     </td>
                     <td>
-                        <input type="text" name="maSP" value="@ViewBag.maSP" />
+                        <input type="text" name="maNV" value="@ViewBag.maNV" />
                     </td>
 
                 </tr>
                 <tr>
-                    <td>Tên Sản Phẩm</td>
+                    <td>Họ Tên Nhân viên</td>
                     <td>
-                        <input type="text" name="tenSP" value="@ViewBag.tenSP" />
+                        <input type="text" name="tenNV" value="@ViewBag.tenNV" />
                     </td>
 
                 </tr>
@@ -81,7 +80,7 @@
                         <input type="submit" name="submit" value="Tìm kiếm" style="margin-left: 5px;width:100px;
                 background-color: blue;color:white;margin-top:10px;margin-bottom:10px" />
                         <input type="button" name="Nhapmoi" value="Nhập mới" style="margin-left: 5px;width:100px;
-                background-color: blue;color:white" onclick="location.href='@Url.Action("TimKiem_SanPham", "SanPhams/TimKiem_SanPham")'" />
+                background-color: blue;color:white" onclick="location.href='@Url.Action("TimKiem_Nhanvien", "NhanViens/TimKiem_Nhanvien")'" />
 
                     </td>
                 </tr>
@@ -99,13 +98,15 @@
               columns: new[]  // colums in grid
              {
          grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
-        grid.Column("MaSP","Mã Sản Phẩm"), //the model fields to display
-        grid.Column("TenSP","Tên Sản Phẩm"  ),
-        grid.Column("Hang.TenHang","Hãng"),
-        grid.Column("Nganh.TenNganh","Ngành Hàng"),
-        grid.Column("SoLuong","Số Lượng"),
-        grid.Column("DonGia","Đơn Giá"),
-        grid.Column("Chức Năng",format: @<text> <a style="margin-left:50px" href="@Url.Action("Details",new { id = item.MaSP})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a></text>),
+        grid.Column("MaNV","Mã Nhân Viên"), //the model fields to display
+        grid.Column("HoNV","Họ Nhân Viên"  ),
+        grid.Column("TenNV","Tên Nhân Viên"),
+        grid.Column("GioiTinh","Giới tính",format: (@item) => @item.GioiTinh==true?"Nam":"Nữ", canSort: true, style: "GT"),
+        grid.Column("NgaySinh","Ngày sinh",format:@<text> @item.NgaySinh.ToString("MM/dd/yyyy")</text>),
+        grid.Column("DiaChi","Địa chỉ"),
+        grid.Column("NgayLamViec","Ngày làm việc",format:@<text> @item.NgayLamViec.ToString("MM/dd/yyyy")</text>),
+
+        grid.Column("Chức Năng",format: @<text> <a style="margin-left:50px" href="@Url.Action("Details",new { id = item.MaNV})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a></text>),
 
 }
 )
