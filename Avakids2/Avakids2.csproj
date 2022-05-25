@@ -236,6 +236,7 @@
     <Content Include="Content\Layout_Admin.css" />
     <Content Include="Content\Layout_home.css" />
     <Content Include="Content\StyleAdmin.css" />
+    <Content Include="Content\StyleHome.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -450,6 +451,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ImagesHome\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
