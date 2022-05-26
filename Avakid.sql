@@ -1,5 +1,5 @@
-﻿drop database AVAKID
-use QLBD
+﻿create database AVAKID
+use AVAKID
 go
 create table NhanVien(	MaNV varchar(10) primary key,
 						TenDangNhap varchar(50) not null,
