@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Avakids2.Models;
-
 namespace Avakids2.Controllers
 {
     public class SanPhamsController : Controller

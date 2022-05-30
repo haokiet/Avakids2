@@ -73,9 +73,10 @@
         <dd>
             @Html.DisplayFor(model => model.Nganh.TenNganh)
         </dd>
-
+         
     </dl>
 </div>
+<img src="~/ProductImages/@Html.DisplayFor(model => model.AnhSP)" width="300" height="300" />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
     @Html.ActionLink("Back to List", "Index")
