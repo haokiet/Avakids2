@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Avakids2.Models.SanPham>
 @{
-    ViewBag.Title = "NganhHang";
+    ViewBag.Title = ViewBag.categoryName;
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
     <link href="~/Content/StyleProduct.css" rel="stylesheet" />
 
 }
 
 <div class="container">
-    <h2 class="h2 p-2">@ViewBag.categoryName</h2>
+    <h2 class="h2 p-2">@ViewBag.C</h2>
     <div class="row">
         @foreach (var item in Model)
         {

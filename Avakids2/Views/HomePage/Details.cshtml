@@ -1,7 +1,7 @@
 ﻿@model Avakids2.Models.SanPham
 @{
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
-    ViewBag.Title = "Chi tiết sản phẩm";
+    ViewBag.Title = @Html.DisplayFor(Model => Model.TenSP);
 }
 
 <head>
