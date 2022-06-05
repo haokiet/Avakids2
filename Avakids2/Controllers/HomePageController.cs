@@ -29,5 +29,12 @@ namespace Avakids2.Controllers
             }
             return View(sanPham);
         }
+        public ActionResult NganhHang(string id)
+        {
+            List<SanPham> productList = db.SanPhams.Where(x => x.MaNganh == id).ToList();
+            ViewBag.categoryName = productList.FirstOrDefault().Nganh.TenNganh;
+            return View(productList);
+        }
+
     }
 }

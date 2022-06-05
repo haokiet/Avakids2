@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Avakids2.Models.SanPham>
+@{
+    ViewBag.Title = "NganhHang";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    <link href="~/Content/StyleProduct.css" rel="stylesheet" />
+
+}
+
+<div class="container">
+    <h2 class="h2 p-2">@ViewBag.categoryName</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="card" onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
+                <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
+                <div class="wrap-item">
+                    <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
+                    <p>@Html.DisplayFor(Model => item.Dongia)</p>
+                </div>
+                <button type="button" class="btn">Chọn mua</button>
+            </div>
+        }
+    </div>
+</div>

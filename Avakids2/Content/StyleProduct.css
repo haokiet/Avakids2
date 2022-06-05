@@ -1,0 +1,49 @@
+﻿.row {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+}
+
+.btn:hover {
+    background-color: #ed1164;
+}
+
+.btn {
+    margin: auto;
+    width: 168px;
+}
+
+p {
+    color: #222222;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    margin: 6px 0px 0px;
+}
+
+.wrap-item {
+    height: 140px;
+    line-height: 18px;
+    padding: 8px;
+}
+
+h3 {
+    font-size: 14px;
+    font-family: Helvetica;
+    line-height: 22px;
+}
+
+.card {
+    margin-top: 20px;
+    width: 192px;
+    height: 400px;
+}
+
+    .card:hover {
+        box-shadow: #ed1164 0px 1px 12px 0px;
+    }
+
+img {
+    width: 189px;
+}
