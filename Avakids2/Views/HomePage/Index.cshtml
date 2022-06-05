@@ -1,51 +1,9 @@
-﻿@model IEnumerable<Avakids2.Models.SanPham>
+﻿
 @{
     ViewBag.Title = "Chuỗi cửa hàng mẹ & bé AVAKids";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
-<head>
-    <style>
-        .row{
-            display: flex;
-            justify-content: space-between;
-            width: 1200px;
-        }
-        .btn:hover{
-            background-color: #ed1164;
-        }
-        .btn {
-            margin: auto;
-            width: 168px;
-        }
 
-        p {
-            color: #222222; font-family: Helvetica; font-size: 18px; font-weight: 700; line-height: 22px; margin: 6px 0px 0px;
-        }
-
-        .wrap-item {
-            height: 140px;
-            line-height: 18px;
-            padding: 8px;
-        }
-        h3{
-            font-size: 14px;
-            font-family: Helvetica;
-            line-height: 22px;
-        }
-        .card {
-            margin-top: 20px;
-            width: 192px;
-            height: 400px;
-        }
-            .card:hover {
-                box-shadow: #ed1164 0px 1px 12px 0px;
-            }
-        img{
-            width: 189px;
-        
-        }
-    </style>
-</head>
 <body>
     <div id="carouselHome" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -69,20 +27,7 @@
         </a>
     </div>
 
-    <div class="container">
-        <div class="row">
-            @foreach (var item in Model.Take(12))
-            {
-            <div class="card" onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
-                <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
-                <div class="wrap-item">
-                    <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
-                    <p>@Html.DisplayFor(Model => item.Dongia)</p>
-                </div>
-                <button type="button" class="btn">Chọn mua</button>
-            </div>
-            }
-        </div>
-    </div>
+
 
 </body>
+
