@@ -23,6 +23,8 @@ namespace Avakids2.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             SanPham sanPham = db.SanPhams.Find(id);
+            ViewBag.categoryName = sanPham.Nganh.TenNganh;
+            ViewBag.categoryId = sanPham.Nganh.MaNganh;
             if (sanPham == null)
             {
                 return HttpNotFound();

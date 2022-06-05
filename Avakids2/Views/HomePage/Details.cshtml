@@ -1,7 +1,7 @@
 ﻿@model Avakids2.Models.SanPham
 @{
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
-    ViewBag.Title = "";
+    ViewBag.Title = "Chi tiết sản phẩm";
 }
 
 <head>
@@ -141,7 +141,7 @@
     </style>
 </head>
 <ul class="breadcrumb bg-white" style="width: 1200px; margin: 0 auto;">
-    <a style="text-decoration-line: none">@Html.ActionLink("Tã cho bé", "")</a>
+    <li><a class="text-decoration-none text-black-50" href="@Url.Action("NganhHang", new { id = ViewBag.categoryId})">@ViewBag.categoryName</a></li>
 </ul>
 <div class="container">
     <div class="details">
@@ -199,7 +199,6 @@
                         <p>@Html.DisplayFor(Model => Model.Hang.TenHang)</p>
                         <p>@Html.DisplayFor(Model => Model.Nganh.TenNganh)</p>
                         <p>@Html.DisplayFor(Model => Model.DonViTinh)</p>
-                        <p>@Html.DisplayFor(Model => Model.SoLuong)</p>
                     </div>
                 </div>
             </div>
