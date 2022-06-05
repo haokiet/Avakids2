@@ -1,0 +1,208 @@
+﻿@model Avakids2.Models.SanPham
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "";
+}
+
+<head>
+    <style>
+        h3 {
+            color: #333333;
+            font-family: Helvetica;
+            font-size: 20px;
+            line-height: 25px
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            color: #222222;
+            font-size: 14px;
+            line-height: 18px;
+            margin: 0px 0px 10px
+        }
+
+        .details {
+            width: 1200px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .details-top {
+            align-items: center;
+            color: #222222;
+            display: flex;
+            font-size: 14px;
+            justify-content: space-between;
+            line-height: 18px;
+            margin: 0px 0px 10px;
+        }
+
+        .price {
+            color: #ed1164;
+            display: inline-block;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 31px;
+            margin: 0px 12px 0px 0px;
+        }
+
+        .id {
+            color: #555555;
+            font-size: 14px;
+            line-height: 18px
+        }
+
+        .box-list {
+            border-color: #f2f2f2;
+            border-radius: 8px;
+            border-style: solid;
+            border-width: 1px;
+            color: #222222;
+            font-size: 14px;
+            line-height: 25px;
+            margin: 0px 0px 10px;
+            padding: 12px 0px 0px 20px;
+        }
+
+        box-list-content {
+            color: #222222;
+            display: list-item;
+            font-family: Helvetica;
+            font-size: 14px;
+            margin: 20px 0px 0px;
+            padding: 0px 0px 0px 20px;
+            text-align: left
+        }
+
+        .btn:hover {
+            color: #ffffff;
+        }
+
+        .buy {
+            border: solid #ffffff;
+            color: #ffffff;
+            width: 242px;
+            height: 52px;
+            align-items: center;
+            background-color: #ed1164;
+            border-radius: 8px;
+            display: flex;
+            font-size: 14px;
+            font-weight: 700;
+            justify-content: center;
+            line-height: 20px;
+            margin: 0px 0px 0px 8px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .policy {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 14px;
+            line-height: 18px
+        }
+
+            .policy li {
+                align-items: center;
+                display: flex;
+                font-family: Helvetica;
+                font-size: 15px;
+                margin: 10px 10px 0px 0px;
+                text-align: left;
+            }
+
+                .policy li p {
+                    margin: 2px 0 0 5px;
+                }
+
+        .info-title {
+            color: #222222;
+            font-family: Helvetica;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 22px;
+            text-transform: uppercase
+        }
+
+        .info-content {
+            display: flex;
+            justify-content: space-between
+        }
+
+        a:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<ul class="breadcrumb bg-white" style="width: 1200px; margin: 0 auto;">
+    <a style="text-decoration-line: none">@Html.ActionLink("Tã cho bé", "")</a>
+</ul>
+<div class="container">
+    <div class="details">
+        <div class="details-left" style="width: 708px">
+            <img src="~/ProductImages/@Html.DisplayFor(model => model.AnhSP)" width="638" />
+        </div>
+        <div class="details-right" style="width: 492px">
+            <div class="box">
+                <h3>@Html.DisplayFor(Model => Model.TenSP)</h3>
+                <div class="details-top">
+                    <p class="price">@Html.DisplayFor(Model => Model.Dongia)</p>
+                    <p class="id">#@Html.DisplayFor(Model => Model.MaSP)</p>
+                </div>
+                <ul class="box-list">
+                    <li class="box-list-content">
+                        Nhập mã AVAKID giảm 10% tối đa 100.000đ cho đơn hàng từ 300.000đ trở lên khi thanh toán qua Ví Moca trên ứng dụng Grab
+                    </li>
+                    <li class="box-list-content">
+                        Nhập mã AVA50 giảm 10% tối đa 50.000đ khi thanh toán quét QRcode qua App của ngân hàng
+                    </li>
+                </ul>
+                <button type="button" class="buy">mua ngay</button>
+                <ul class="policy">
+                    <li>
+                        <img class="icon-doitra" src="/images/repeating.png" width="30" height="30" />
+                        <p>Hoàn tiền, đổi trả trong <b>7 ngày</b></p>
+                    </li>
+                    <li>
+                        <img class="icon-doitra" src="/images/delivery.png" width="30" height="30" />
+                        <p>Giao hàng thu tiền, thanh toán online nhiều phương thức</p>
+                    </li>
+                    <li>
+                        <img class="icon-doitra" src="/images/headphones.png" width="30" height="30" />
+                        <p>
+                            Tổng đài: 1900.866.874
+                            (7h30 - 22h00)
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="info-item">
+                <p class="info-title">
+                    Thông tin chi tiết
+                </p>
+                <div class="info-content">
+                    <div class="txt01" style="width: 30%; background-color: #F5F7F8 ">
+                        <p>Mô tả</p>
+                        <p>Hãng</p>
+                        <p>Ngành hàng</p>
+                        <p>Đơn vị tính</p>
+                        <p>Số lượng</p>
+                    </div>
+                    <div class="txt02 " style="width: 70%">
+                        <p>@Html.DisplayFor(Model => Model.MoTaSP)</p>
+                        <p>@Html.DisplayFor(Model => Model.Hang.TenHang)</p>
+                        <p>@Html.DisplayFor(Model => Model.Nganh.TenNganh)</p>
+                        <p>@Html.DisplayFor(Model => Model.DonViTinh)</p>
+                        <p>@Html.DisplayFor(Model => Model.SoLuong)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
