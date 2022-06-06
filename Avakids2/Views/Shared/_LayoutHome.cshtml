@@ -16,14 +16,14 @@
         <div class="header_main">
             <section class="header_top">
                 <a href="/" class="header_logo"><img class="logo" src="~/images/cover-kids.png" alt="logo" /></a>
-                <form class="header_search_form rounded-pill input-group-text bg-white" action="/">
-                    <input type="search" class="form-control " placeholder="Tìm sản phẩm,..." />
+                <form class="header_search_form rounded-pill input-group-text bg-white"  action="@Url.Action("TimKiem")" method="get">
+                    <input type="search" class="form-control" placeholder="Tìm sản phẩm,..." name="Ten" value="@ViewBag.Ten" />
                     <button type="submit" class="btn-sm bg-white border-0">
                         <i class="bi-search"></i>
                     </button>
                 </form>
                 <div class="box_right text-center">
-                    <a href="/" class="header_cart p-1 text-white text-decoration-none"> <i class="bi-bag"></i> Giỏ hàng</a>
+                    <a href="@Url.Action("GioHang")" class="header_cart p-1 text-white text-decoration-none"> <i class="bi-bag"></i> Giỏ hàng</a>
                     <a href="/" class="header_hotline p-1 text-white text-decoration-none">
                         Hotline (7h30 - 22h00)
                         <br>

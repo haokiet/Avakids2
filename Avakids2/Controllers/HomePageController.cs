@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Avakids2.Models;
+using System.Linq;
 namespace Avakids2.Controllers
 {
     public class HomePageController : Controller
@@ -37,6 +38,20 @@ namespace Avakids2.Controllers
             ViewBag.categoryName = productList.FirstOrDefault().Nganh.TenNganh;
             return View(productList);
         }
-
+        public ActionResult GioHang()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult TimKiem(string Ten)
+        {
+            ViewBag.Ten = Ten;
+            var sp = from t in db.SanPhams
+                     where t.TenSP.Contains(Ten)
+                     select t;
+            if (sp.Count() == 0)
+                ViewBag.TB = "Không có thông tin tìm kiếm cho " + Ten;
+            return View(sp.ToList());
+        }
     }
 }

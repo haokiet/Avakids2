@@ -451,11 +451,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\HomePage\Details.cshtml" />
     <Content Include="Views\HomePage\NganhHang.cshtml" />
+    <Content Include="Views\HomePage\GioHang.cshtml" />
+    <Content Include="Views\HomePage\TimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ImagesHome\" />
-    <Folder Include="Views\SuaBau\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
