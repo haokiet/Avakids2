@@ -16,8 +16,8 @@
         <div class="header_main">
             <section class="header_top">
                 <a href="/" class="header_logo"><img class="logo" src="~/images/cover-kids.png" alt="logo" /></a>
-                <form class="header_search_form rounded-pill input-group-text bg-white"  action="@Url.Action("TimKiem")" method="get">
-                    <input type="search" class="form-control" placeholder="Tìm sản phẩm,..." name="Ten" value="@ViewBag.Ten" />
+                <form class="form-group header_search_form rounded-pill input-group-text bg-white"  action="@Url.Action("TimKiem")" method="get">
+                    <input type="search" class="form-control" placeholder="Tìm sản phẩm,..." name="Ten" value="@ViewBag.Ten" required/>
                     <button type="submit" class="btn-sm bg-white border-0">
                         <i class="bi-search"></i>
                     </button>

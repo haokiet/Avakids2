@@ -43,7 +43,7 @@ namespace Avakids2.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult TimKiem(string Ten)
+        public ActionResult TimKiem(string Ten ="")
         {
             ViewBag.Ten = Ten;
             var sp = from t in db.SanPhams
