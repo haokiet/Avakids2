@@ -17,7 +17,12 @@ namespace Avakids2.Controllers
         // GET: Nganhs
         public ActionResult Index()
         {
-            return View(db.Nganhs.ToList());
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View(db.Nganhs.ToList());
         }
 
         // GET: Nganhs/Details/5

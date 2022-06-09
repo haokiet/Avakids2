@@ -27,6 +27,7 @@ namespace Avakids2.Models
         public string DiaChi { get; set; }
         public string TenDN { get; set; }
         public string MatKhau { get; set; }
+        public Nullable<bool> Admin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }

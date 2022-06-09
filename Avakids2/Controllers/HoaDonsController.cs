@@ -18,7 +18,12 @@ namespace Avakids2.Controllers
         public ActionResult Index()
         {
             var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.NhanVien).Include(h => h.NhanVien1);
-            return View(hoaDons.ToList());
+            if (Session["HoTen"] == null && Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View(hoaDons.ToList());
         }
 
         // GET: HoaDons/Details/5

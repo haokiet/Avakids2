@@ -17,7 +17,12 @@ namespace Avakids2.Controllers
         public ActionResult Index()
         {
             var sanPhams = db.SanPhams.Include(s => s.Hang).Include(s => s.Nganh);
-            return View(sanPhams.ToList());
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View(sanPhams.ToList());
         }
 
         // GET: SanPhams/Details/5
@@ -65,8 +70,6 @@ namespace Avakids2.Controllers
 
         public ActionResult TimKiem_SanPham(string maSP = "", string tenSP = "")
         {
-
-
             ViewBag.maSP = maSP;
             ViewBag.tenSP = tenSP;
 

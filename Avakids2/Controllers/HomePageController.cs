@@ -38,10 +38,11 @@ namespace Avakids2.Controllers
             ViewBag.categoryName = productList.FirstOrDefault().Nganh.TenNganh;
             return View(productList);
         }
-        public ActionResult GioHang()
+        public ActionResult DangNhap()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult TimKiem(string Ten ="")
         {
@@ -53,5 +54,6 @@ namespace Avakids2.Controllers
                 ViewBag.TB = "Không có thông tin tìm kiếm cho " + Ten;
             return View(sp.ToList());
         }
+        
     }
 }

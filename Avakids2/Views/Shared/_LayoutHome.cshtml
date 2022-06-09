@@ -1,4 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string id = "";
+    string admin = "";
+    string hoTen = "";
+    try
+    {
+        hoTen = Session["HoTen"].ToString();
+        id = Session["id"].ToString();
+        admin = Session["Admin"].ToString();
+        if (id != null)
+        {
+            ViewBag.NguoiDung = hoTen;
+        }
+        else
+        {
+            ViewBag.NguoiDung = "Chưa đăng nhập";
+        }
+    }
+    catch
+    {
+
+    }
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -15,9 +38,9 @@
     <header class="header">
         <div class="header_main">
             <section class="header_top">
-                <a href="/" class="header_logo"><img class="logo" src="~/images/cover-kids.png" alt="logo" /></a>
-                <form class="form-group header_search_form rounded-pill input-group-text bg-white"  action="@Url.Action("TimKiem")" method="get">
-                    <input type="search" class="form-control" placeholder="Tìm sản phẩm,..." name="Ten" value="@ViewBag.Ten" required/>
+                <a href="@Url.Action("Index","HomePage")" class="header_logo"><img class="logo" src="~/images/cover-kids.png" alt="logo" /></a>
+                <form class="form-group header_search_form rounded-pill input-group-text bg-white" action="@Url.Action("TimKiem")" method="get">
+                    <input type="search" class="form-control" placeholder="Tìm sản phẩm,..." name="Ten" value="@ViewBag.Ten" required />
                     <button type="submit" class="btn-sm bg-white border-0">
                         <i class="bi-search"></i>
                     </button>
@@ -27,12 +50,36 @@
                     <a href="/" class="header_hotline p-1 text-white text-decoration-none">
                         Hotline (7h30 - 22h00)
                         <br>
-                        <span class="text-warning fw-bold">1900 866 874</span>
+                        <span class="text-warning fw-bold">0797051900</span>
                     </a>
                 </div>
-                <div>
-                    <a href="/" class="header_cart p-1 text-white text-decoration-none"> <i class="bi-person"></i>Đăng nhập</a>
-                </div>
+                @{
+                    if (!String.IsNullOrEmpty(admin))
+                    {
+                        <div>
+                            <a href="@Url.Action("Index","SanPhams")" class="btn btn-sm text-white fw-bold">Admin</a>
+                        </div>
+                    }
+                 }
+                @{
+                    if (!String.IsNullOrEmpty(id))
+                    {
+                        <div>
+                            <a class="text-white fw-bold">@ViewBag.NguoiDung</a>
+                            <a href="@Url.Action("Logout","DangNhap")" class="btn btn-sm text-white fw-bold">Logout</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <a href="@Url.Action("DangNhap","DangNhap")" class="header_cart p-1 text-white text-decoration-none"> <i class="bi-person"></i>Đăng nhập</a>
+                        </div>
+                    }
+
+
+                }
+
+
             </section>
 
             <section>

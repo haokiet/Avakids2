@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <form>
+            <input name="username" type="text" />
+            <input name="password" type="password" />
+            <button class="btn">Login</button>
+        </form>
+
+    }

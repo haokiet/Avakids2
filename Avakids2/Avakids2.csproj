@@ -172,6 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CTHoaDonsController.cs" />
+    <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\HangsController.cs" />
     <Compile Include="Controllers\HoaDonsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -451,8 +452,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\HomePage\Details.cshtml" />
     <Content Include="Views\HomePage\NganhHang.cshtml" />
-    <Content Include="Views\HomePage\GioHang.cshtml" />
     <Content Include="Views\HomePage\TimKiem.cshtml" />
+    <Content Include="Views\DangNhap\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

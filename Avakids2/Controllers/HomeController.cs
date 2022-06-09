@@ -10,7 +10,12 @@ namespace Avakids2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View();
         }
 
         public ActionResult About()

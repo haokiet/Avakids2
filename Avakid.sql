@@ -27,7 +27,8 @@ create table KhachHang(	MaKH varchar(10) primary key,
 						SoDT char(11) not null,
 						DiaChi nvarchar(100),
 						TenDN varchar(50) not null,
-						MatKhau varchar(20) not null)
+						MatKhau varchar(20) not null,
+						Admin bit default 0)
 
 create table HoaDon(	SoHD varchar(10) primary key,
 						MaKH varchar(10) references KhachHang(MaKH) not null,
@@ -255,3 +256,11 @@ VALUES ('76073','2605','119616',N'Bột ăn dặm Nestlé Cerelac gà hầm cà 
 ('261516','2382','129885',N'Sữa bầu Frisomum hương cam 400g',N'Sữa bầu Friso','sua-bot-frisomum-huong-cam-400g-600x600.jpg','219000',N'Hộp','100'),
 ('266221','2382','150217',N'Sữa bầu Wakodo Mom 300g',N'Sữa bầu Wakodo','sua-bau-wakodo-mom-300g-7-600x600.jpg','219000',N'Hộp','100'),
 ('266222','2382','150217',N'Sữa bầu Wakodo Mom 830g',N'Sữa bầu Wakodo','sua-bau-wakodo-mom-830g-2-600x600.jpg','219000',N'Hộp','100')
+
+INSERT INTO NhanVien(MaNV, TenDangNhap, MatKhau, HoNV,TenNV, NgaySinh, NgayLamViec , DiaChi, GioiTinh,SoDT)
+VALUES ('NV001','xuandat','123',N'Huỳnh Xuân',N'Đạt','2001-2-28','2021-2-3','Nha Trang',1,'0797051900'),
+('NV002', 'huutho','123',N'Nguyễn',N'Thọ', '2001-2-28','2021-2-3','Nha Trang', 1,'0797051900')
+
+INSERT INTO KhachHang (MaKH, HoKH, TenKH, SoDT, DiaChi, TenDN, MatKhau, Admin)
+VALUES ('KH001', N'Lê Văn', N'Đạt', '0797051900', N'Ninh Thuận', 'datxuan', '123', 1),
+('KH002', N'Cao Hào', N'Kiệt', '0797051900', N'Khánh Hoà', 'datxuan', '123', 1)

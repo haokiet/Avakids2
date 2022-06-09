@@ -7,12 +7,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 <h2>@ViewBag.Title</h2>
-<button class="btn-single">
-    <i class="fa fa-plus-circle"></i>
-    @Html.ActionLink("Thêm", "Create")
-</button>
+
+<div class="container-fluid">
+    <div class="row">
+        <button class="btn btn-primary col-1">
+            <i class="fa fa-plus-circle"></i>
+            @Html.ActionLink("Thêm", "Create")
+        </button>
+        <div class="col-11">
+            @using (Html.BeginForm("TimKiem_SanPham", "SanPhams", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <table class="table1" align="right">
+                    <tr class="pb-1">
+                        <td class="control-label">Tìm sản phẩm </td>
+                        <td>
+                            <input class="form-control" type="text" name="Ten" value="@ViewBag.Ten" />
+                        </td>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-primary" type="submit" name="submit" value="Tìm kiếm">Tìm kiếm</button>
+                            <button class="btn btn-primary" type="button" name="Nhapmoi" value="Nhập mới" onclick="location.href='@Url.Action("Index", "SanPhams")'">Nhập mới</button>
+
+                        </td>
+                    </tr>
+                </table>
+                @ViewBag.TB
+            }
+        </div>
+    </div>
+</div>
 <div id="gridContent">
-    @ViewBag.TB
     @grid.GetHtml(
         tableStyle: "table table-bordered table-hover",
         footerStyle: "grid-footer",

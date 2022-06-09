@@ -17,7 +17,12 @@ namespace Avakids2.Controllers
         // GET: KhachHangs
         public ActionResult Index()
         {
-            return View(db.KhachHangs.ToList());
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View(db.KhachHangs.ToList());
         }
 
         // GET: KhachHangs/Details/5

@@ -17,7 +17,12 @@ namespace Avakids2.Controllers
         // GET: Hangs
         public ActionResult Index()
         {
-            return View(db.Hangs.ToList());
+            if (Session["HoTen"] == null && Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View(db.Hangs.ToList());
         }
 
         // GET: Hangs/Details/5
