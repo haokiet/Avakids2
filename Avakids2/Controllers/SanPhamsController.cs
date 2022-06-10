@@ -43,9 +43,14 @@ namespace Avakids2.Controllers
         // GET: SanPhams/Create
         public ActionResult Create()
         {
-            ViewBag.MaHang = new SelectList(db.Hangs, "MaHang", "TenHang");
-            ViewBag.MaNganh = new SelectList(db.Nganhs, "MaNganh", "TenNganh");
-            return View();
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                ViewBag.MaHang = new SelectList(db.Hangs, "MaHang", "TenHang");
+                ViewBag.MaNganh = new SelectList(db.Nganhs, "MaNganh", "TenNganh");
+                return View();
         }
 
         // POST: SanPhams/Create

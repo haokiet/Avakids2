@@ -43,7 +43,12 @@ namespace Avakids2.Controllers
         // GET: Hangs/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View();
         }
 
         // POST: Hangs/Create

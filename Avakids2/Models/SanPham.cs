@@ -11,7 +11,8 @@ namespace Avakids2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,6 +27,7 @@ namespace Avakids2.Models
         public string TenSP { get; set; }
         public string MoTaSP { get; set; }
         public string AnhSP { get; set; }
+        [DisplayFormat(DataFormatString = "{0:#,##0}", ApplyFormatInEditMode = true)]
         public Nullable<int> Dongia { get; set; }
         public string DonViTinh { get; set; }
         public Nullable<int> SoLuong { get; set; }

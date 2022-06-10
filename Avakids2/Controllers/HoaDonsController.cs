@@ -38,10 +38,15 @@ namespace Avakids2.Controllers
 
         // GET: HoaDons/Create
         public ActionResult Create()
-        {
+        {   
             ViewBag.MaKH = new SelectList(db.KhachHangs, "MaKH", "HoKH");
             ViewBag.MaNVDuyet = new SelectList(db.NhanViens, "MaNV", "TenDangNhap");
-            return View();
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+            else
+                return View();
         }
 
         // POST: HoaDons/Create

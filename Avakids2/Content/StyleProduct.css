@@ -6,6 +6,7 @@
 
 .btn:hover {
     background-color: #ed1164;
+    color: #fff;
 }
 
 .btn {
@@ -42,7 +43,8 @@ h3 {
 }
 
     .card:hover {
-        box-shadow: #ed1164 0px 1px 12px 0px;
+        box-shadow: #ed1164 0px 1px 6px 0px;
+        border: 1px solid #ed1164;
     }
 
 img {

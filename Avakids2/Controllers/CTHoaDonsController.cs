@@ -46,7 +46,11 @@ namespace Avakids2.Controllers
         {
             ViewBag.SoHD = new SelectList(db.HoaDons, "SoHD", "MaKH");
             ViewBag.SoHD = new SelectList(db.SanPhams, "MaSP", "MaHang");
-            return View();
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("DangNhap", "DangNhap");
+            }
+                return View();
         }
 
         // POST: CTHoaDons/Create
