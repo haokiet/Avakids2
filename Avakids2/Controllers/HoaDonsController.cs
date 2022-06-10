@@ -17,13 +17,8 @@ namespace Avakids2.Controllers
         // GET: HoaDons
         public ActionResult Index()
         {
-            var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.NhanVien).Include(h => h.NhanVien1);
-            if (Session["HoTen"] == null && Session["Admin"] == null)
-            {
-                return RedirectToAction("DangNhap", "DangNhap");
-            }
-            else
-                return View(hoaDons.ToList());
+            var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.NhanVien);
+            return View(hoaDons.ToList());
         }
 
         // GET: HoaDons/Details/5
@@ -46,7 +41,6 @@ namespace Avakids2.Controllers
         {
             ViewBag.MaKH = new SelectList(db.KhachHangs, "MaKH", "HoKH");
             ViewBag.MaNVDuyet = new SelectList(db.NhanViens, "MaNV", "TenDangNhap");
-            ViewBag.MaNVGiaoHang = new SelectList(db.NhanViens, "MaNV", "TenDangNhap");
             return View();
         }
 
@@ -55,7 +49,7 @@ namespace Avakids2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SoHD,MaKH,MaNVDuyet,MaNVGiaoHang,DiaChiGiaoHang,TinhTrang,NgayDatHang,NgayGiaoHang")] HoaDon hoaDon)
+        public ActionResult Create([Bind(Include = "SoHD,MaKH,MaNVDuyet,DiaChiGiaoHang,TinhTrang,NgayDatHang")] HoaDon hoaDon)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +60,6 @@ namespace Avakids2.Controllers
 
             ViewBag.MaKH = new SelectList(db.KhachHangs, "MaKH", "HoKH", hoaDon.MaKH);
             ViewBag.MaNVDuyet = new SelectList(db.NhanViens, "MaNV", "TenDangNhap", hoaDon.MaNVDuyet);
-            ViewBag.MaNVGiaoHang = new SelectList(db.NhanViens, "MaNV", "TenDangNhap", hoaDon.MaNVGiaoHang);
             return View(hoaDon);
         }
 
@@ -84,7 +77,6 @@ namespace Avakids2.Controllers
             }
             ViewBag.MaKH = new SelectList(db.KhachHangs, "MaKH", "HoKH", hoaDon.MaKH);
             ViewBag.MaNVDuyet = new SelectList(db.NhanViens, "MaNV", "TenDangNhap", hoaDon.MaNVDuyet);
-            ViewBag.MaNVGiaoHang = new SelectList(db.NhanViens, "MaNV", "TenDangNhap", hoaDon.MaNVGiaoHang);
             return View(hoaDon);
         }
 
@@ -93,7 +85,7 @@ namespace Avakids2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SoHD,MaKH,MaNVDuyet,MaNVGiaoHang,DiaChiGiaoHang,TinhTrang,NgayDatHang,NgayGiaoHang")] HoaDon hoaDon)
+        public ActionResult Edit([Bind(Include = "SoHD,MaKH,MaNVDuyet,DiaChiGiaoHang,TinhTrang,NgayDatHang")] HoaDon hoaDon)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +95,6 @@ namespace Avakids2.Controllers
             }
             ViewBag.MaKH = new SelectList(db.KhachHangs, "MaKH", "HoKH", hoaDon.MaKH);
             ViewBag.MaNVDuyet = new SelectList(db.NhanViens, "MaNV", "TenDangNhap", hoaDon.MaNVDuyet);
-            ViewBag.MaNVGiaoHang = new SelectList(db.NhanViens, "MaNV", "TenDangNhap", hoaDon.MaNVGiaoHang);
             return View(hoaDon);
         }
 

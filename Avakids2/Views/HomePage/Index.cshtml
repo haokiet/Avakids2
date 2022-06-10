@@ -34,13 +34,15 @@
         <div class="row">
             @foreach (var item in Model.Take(12))
             {
-                <div class="card" onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
-                    <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
-                    <div class="wrap-item">
-                        <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
-                        <p>@Html.DisplayFor(Model => item.Dongia)</p>
+                <div class="card" >
+                    <div onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
+                        <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
+                        <div class="wrap-item">
+                            <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
+                            <p>@Html.DisplayFor(Model => item.Dongia)</p>
+                        </div>
                     </div>
-                    <button type="button" class="btn">Chọn mua</button>
+                    <button onclick="location.href='@Url.Action("AddToCart","GioHang", new {id = item.MaSP})'" type="button" class="btn">Chọn mua</button>
                 </div>
             }
         </div>
@@ -51,14 +53,16 @@
         <div class="row">
             @foreach (var item in Model.Where(x => x.MaNganh == "2605").Take(6))
             {
-                <div class="card" onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
+            <div class="card">
+                <div onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
                     <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
                     <div class="wrap-item">
                         <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
                         <p>@Html.DisplayFor(Model => item.Dongia)</p>
                     </div>
-                    <button type="button" class="btn">Chọn mua</button>
                 </div>
+                <button onclick="location.href='@Url.Action("AddToCart","GioHang", new {id = item.MaSP})'" type="button" class="btn">Chọn mua</button>
+            </div>
             }
         </div>
     </div>
@@ -67,13 +71,15 @@
         <div class="row">
             @foreach (var item in Model.Where(x => x.MaNganh == "9079").Take(6))
             {
-                <div class="card" onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
-                    <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
-                    <div class="wrap-item">
-                        <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
-                        <p>@Html.DisplayFor(Model => item.Dongia)</p>
+                <div class="card">
+                    <div onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
+                        <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
+                        <div class="wrap-item">
+                            <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
+                            <p>@Html.DisplayFor(Model => item.Dongia)</p>
+                        </div>
                     </div>
-                    <button type="button" class="btn">Chọn mua</button>
+                    <button onclick="location.href='@Url.Action("AddToCart","GioHang", new {id = item.MaSP})'" type="button" class="btn">Chọn mua</button>
                 </div>
             }
         </div>

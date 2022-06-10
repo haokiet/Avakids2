@@ -5,7 +5,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Avakids2.Models;
-using System.Linq;
 namespace Avakids2.Controllers
 {
     public class HomePageController : Controller

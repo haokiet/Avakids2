@@ -10,13 +10,15 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="card" onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
-                <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
-                <div class="wrap-item">
-                    <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
-                    <p>@Html.DisplayFor(Model => item.Dongia)</p>
+            <div class="card">
+                <div onclick="location.href='@Url.Action("Details", new { id = item.MaSP})'">
+                    <img src="~/ProductImages/@Html.DisplayFor(Model => item.AnhSP)" />
+                    <div class="wrap-item">
+                        <h3>@Html.DisplayFor(Model => item.TenSP)</h3>
+                        <p>@Html.DisplayFor(Model => item.Dongia)</p>
+                    </div>
                 </div>
-                <button type="button" class="btn">Chọn mua</button>
+                <button onclick="location.href='@Url.Action("AddToCart","GioHang", new {id = item.MaSP})'" type="button" class="btn">Chọn mua</button>
             </div>
         }
     </div>

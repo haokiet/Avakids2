@@ -4,21 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5f32f0dbd2624b2f9b4fda8158f0d795" Name="Diagram1">
-        <EntityTypeShape EntityType="AVAKIDModel.CTHoaDon" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AVAKIDModel.Hang" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AVAKIDModel.HoaDon" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AVAKIDModel.KhachHang" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AVAKIDModel.Nganh" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AVAKIDModel.NhanVien" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AVAKIDModel.SanPham" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <AssociationConnector Association="AVAKIDModel.FK__CTHoaDon__SoHD__34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="AVAKIDModel.FK__CTHoaDon__SoHD__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="AVAKIDModel.FK__SanPham__MaHang__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="AVAKIDModel.FK__HoaDon__MaKH__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="AVAKIDModel.FK__HoaDon__MaNVDuye__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="AVAKIDModel.FK__HoaDon__MaNVGiao__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="AVAKIDModel.FK__SanPham__MaNganh__31EC6D26" ManuallyRouted="false" />
+      <Diagram DiagramId="5f32f0dbd2624b2f9b4fda8158f0d795" Name="Diagram1" ZoomLevel="96">
+        <EntityTypeShape EntityType="AVAKIDModel.CTHoaDon" Width="1.5" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="AVAKIDModel.Hang" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="AVAKIDModel.HoaDon" Width="1.5" PointX="3.125" PointY="11.125" />
+        <EntityTypeShape EntityType="AVAKIDModel.KhachHang" Width="1.5" PointX="0.875" PointY="9.125" />
+        <EntityTypeShape EntityType="AVAKIDModel.Nganh" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AVAKIDModel.NhanVien" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="AVAKIDModel.SanPham" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="AVAKIDModel.FK__CTHoaDon__SoHD__34C8D9D1" />
+        <AssociationConnector Association="AVAKIDModel.FK__CTHoaDon__SoHD__35BCFE0A" />
+        <AssociationConnector Association="AVAKIDModel.FK__SanPham__MaHang__30F848ED" />
+        <AssociationConnector Association="AVAKIDModel.FK__HoaDon__MaKH__2D27B809" />
+        <AssociationConnector Association="AVAKIDModel.FK__HoaDon__MaNVDuye__2E1BDC42" />
+        <AssociationConnector Association="AVAKIDModel.FK__SanPham__MaNganh__31EC6D26" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

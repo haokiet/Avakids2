@@ -23,16 +23,13 @@ namespace Avakids2.Models
         public string SoHD { get; set; }
         public string MaKH { get; set; }
         public string MaNVDuyet { get; set; }
-        public string MaNVGiaoHang { get; set; }
         public string DiaChiGiaoHang { get; set; }
         public string TinhTrang { get; set; }
         public System.DateTime NgayDatHang { get; set; }
-        public Nullable<System.DateTime> NgayGiaoHang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHoaDon> CTHoaDons { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }
-        public virtual NhanVien NhanVien1 { get; set; }
     }
 }

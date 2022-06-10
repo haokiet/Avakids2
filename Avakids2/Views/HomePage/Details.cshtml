@@ -1,4 +1,5 @@
 ﻿@model Avakids2.Models.SanPham
+
 @{
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
     ViewBag.Title = @Html.DisplayFor(Model => Model.TenSP);
@@ -163,7 +164,7 @@
                         Nhập mã AVA50 giảm 10% tối đa 50.000đ khi thanh toán quét QRcode qua App của ngân hàng
                     </li>
                 </ul>
-                <button type="button" class="buy">mua ngay</button>
+                <button onclick="location.href='@Url.Action("AddToCart","GioHang", new {id = Model.MaSP})'" type="button" class="buy">mua ngay</button>
                 <ul class="policy">
                     <li>
                         <img class="icon-doitra" src="/images/repeating.png" width="30" height="30" />

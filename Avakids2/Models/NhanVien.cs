@@ -18,7 +18,6 @@ namespace Avakids2.Models
         public NhanVien()
         {
             this.HoaDons = new HashSet<HoaDon>();
-            this.HoaDons1 = new HashSet<HoaDon>();
         }
     
         public string MaNV { get; set; }
@@ -34,7 +33,5 @@ namespace Avakids2.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons1 { get; set; }
     }
 }

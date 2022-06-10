@@ -1,0 +1,163 @@
+﻿@model IEnumerable<Avakids2.Controllers.Cart>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    int sum = 0;
+    long tongTien = 0;
+    int i = 0;
+}
+
+<style>
+    button a {
+        color: white;
+    }
+
+    button {
+        height: 30px;
+        background-color: #1E90FF;
+        border-color: #1E90FF;
+        border-radius: 3px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    input {
+        height: 30px;
+    }
+
+    table {
+        margin: 0 auto;
+        width: 700px;
+    }
+
+    h1 {
+        color: #1E90FF;
+        font-family: Coiny;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 33px;
+        text-transform: uppercase
+    }
+
+    h3 {
+        color: #333333;
+        font-family: Open Sans;
+        font-size: 24px;
+        line-height: 26.4px;
+        margin: 20px 0px 10px
+    }
+
+    label {
+        width: 130px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .container {
+        width: 750px;
+    }
+
+    td {
+        text-align: center;
+        height: 30px;
+        width: 100px;
+    }
+</style>
+
+<div class="container">
+    <h1>@ViewBag.Title</h1>
+    <h3>Thông tin thanh toán</h3>
+    @using (Html.BeginForm("Order", "GioHang", FormMethod.Get))
+    {
+        <div class="info">
+            <label>Họ và tên</label>
+            <input type="text" name="name" value="@ViewBag.name" />
+            <br />
+            <div style="width: 150px">
+                <label>Địa chỉ </label>
+                <textarea type="text" name="address" cols="40">@ViewBag.address</textarea>
+            </div>
+            <br />
+            <label>Số điện thoại </label>
+            <input type="text" name="phone" value="@ViewBag.phone" />
+        </div>
+
+
+
+
+        <button style="float: right">
+            @Html.ActionLink("Xóa tất cả", "RemoveAll", "GioHang")
+        </button>
+
+        <table border="1">
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Ảnh</th>
+                <th>Số Lượng</th>
+                <th>Thành tiền</th>
+                <th> Chức Năng </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @{i = i + 1;}
+                        @i
+                    </td>
+                    <td>
+                        @item.name
+                    </td>
+                    <td>
+                        @item.price
+                    </td>
+                    <td>
+                        <img style="object-fit:cover" src="~/ProductImages/@item.photo" width="50" height="50" onclick="document.getElementById('modal01').style.display='block'">
+                        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                            <div class="w3-modal-content w3-animate-zoom">
+                                <img src="~/ProductImages/@item.photo" style="width:100%">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.ActionLink("-", "addQuantity", new { id = item.id, a = "-" })
+
+                        @item.quantity
+
+                        @Html.ActionLink("+", "addQuantity", new { id = item.id, a = "+" })
+                    </td>
+                    <td>
+                        @{ sum = item.price * item.quantity; tongTien += sum;}
+                        <span class="total">@sum</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("xóa", "removeEach", new { id = item.id })
+                    </td>
+
+                </tr>
+
+            }
+
+        </table>
+
+
+        <label style="margin-top: 20px; width: 150px; font-size:25px">Tổng tiền: </label><span class="total" style="font-size: 25px">@tongTien</span>
+        <br />
+
+        <button type="submit">Thanh toán</button>
+
+    }
+</div>
+
+<script>
+    let x = document.querySelectorAll(".total");
+    for (let i = 0, len = x.length; i < len; i++) {
+        let num = Number(x[i].innerHTML)
+            .toLocaleString('en');
+        x[i].innerHTML = num + "đ";
+        x[i].classList.add("currSign");
+    }
+</script>
+

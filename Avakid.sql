@@ -32,13 +32,10 @@ create table KhachHang(	MaKH varchar(10) primary key,
 
 create table HoaDon(	SoHD varchar(10) primary key,
 						MaKH varchar(10) references KhachHang(MaKH) not null,
-						MaNVDuyet varchar(10) references NhanVien(MaNV) not null,
-						MaNVGiaoHang varchar(10) references NhanVien(MaNV) not null,
+						MaNVDuyet varchar(10) references NhanVien(MaNV) null,
 						DiaChiGiaoHang nvarchar(100) not null,
 						TinhTrang nvarchar(20) not null,
-						NgayDatHang date not null,
-						NgayGiaoHang date)
-
+						NgayDatHang date not null)
 
 create table SanPham(	MaSP varchar(10) primary key,
 						MaHang varchar(10) references Hang(MaHang) not null,
@@ -50,13 +47,10 @@ create table SanPham(	MaSP varchar(10) primary key,
 						DonViTinh nvarchar(10),
 						SoLuong int)
 
-create table CTHoaDon(	SoHD varchar(10) ,
-						MaSP varchar(10),
-						SoLuong int,
-						DonGia int,
-						primary key(SoHD,MaSP),
-						foreign key(SoHD) references HoaDon(SoHD),
-						foreign key(SoHD) references SanPham(MaSP))
+create table CTHoaDon(	SoHD varchar(10) references HoaDon(SoHD) not null,
+						MaSP varchar(10) references SanPham(MaSP) not null,
+						SoLuong int not null,
+						DonGia int not null)
 
 go
 
@@ -258,9 +252,9 @@ VALUES ('76073','2605','119616',N'Bột ăn dặm Nestlé Cerelac gà hầm cà 
 ('266222','2382','150217',N'Sữa bầu Wakodo Mom 830g',N'Sữa bầu Wakodo','sua-bau-wakodo-mom-830g-2-600x600.jpg','219000',N'Hộp','100')
 
 INSERT INTO NhanVien(MaNV, TenDangNhap, MatKhau, HoNV,TenNV, NgaySinh, NgayLamViec , DiaChi, GioiTinh,SoDT)
-VALUES ('NV001','xuandat','123',N'Huỳnh Xuân',N'Đạt','2001-2-28','2021-2-3','Nha Trang',1,'0797051900'),
-('NV002', 'huutho','123',N'Nguyễn',N'Thọ', '2001-2-28','2021-2-3','Nha Trang', 1,'0797051900')
+VALUES ('NV002', 'huutho','123',N'Nguyễn',N'Thọ', '2001-2-28','2021-2-3','Nha Trang', 1,'0797051900')
 
 INSERT INTO KhachHang (MaKH, HoKH, TenKH, SoDT, DiaChi, TenDN, MatKhau, Admin)
 VALUES ('KH001', N'Lê Văn', N'Đạt', '0797051900', N'Ninh Thuận', 'datxuan', '123', 1),
-('KH002', N'Cao Hào', N'Kiệt', '0797051900', N'Khánh Hoà', 'datxuan', '123', 1)
+('KH002', N'Cao Hào', N'Kiệt', '0797051900', N'Khánh Hoà', 'haokiet', '123', 0),
+('KH003', N'Huỳnh Xuân', N'Đạt', '0797051900', N'Nha Trang', 'xuandat', '123', 1)
