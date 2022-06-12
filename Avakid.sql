@@ -1,4 +1,5 @@
 ﻿create database AVAKID
+go
 use AVAKID
 go
 create table NhanVien(	MaNV varchar(10) primary key,
