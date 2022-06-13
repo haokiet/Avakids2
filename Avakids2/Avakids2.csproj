@@ -460,6 +460,7 @@
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\GioHang\Order.cshtml" />
+    <Content Include="Views\DangNhap\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
