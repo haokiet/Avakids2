@@ -41,6 +41,7 @@
         </div>
     </div>
 </div>
+
 <div id="gridContent">
     @grid.GetHtml(
         tableStyle: "table table-bordered table-hover",
@@ -56,17 +57,50 @@
         grid.Column("MaHang","Hãng"),
         grid.Column("MaNganh","Ngành hàng"),
         grid.Column("SoLuong","Số lượng"),
-        grid.Column("Dongia","Đơn giá"),
+        grid.Column("Dongia","Đơn giá",canSort: true, style: "total"),
         grid.Column("Chức năng", format: @<text>
     <a href="@Url.Action("Edit",new { id = item.MaSP})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
     <a href="@Url.Action("Details",new { id = item.MaSP})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
-    <a href="@Url.Action("Delete",new { id = item.MaSP})" class="edit-btn">
+    <a class="edit-btn" data-toggle="modal" data-target="#exampleModalCenter">
         <abbr title="Xóa dữ liệu">
             <img src="/images/delete.png" width="20" height="20" />
         </abbr>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-info" id="exampleModalLongTitle">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-warning d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                            <div class="ml-2">
+                                Xác nhận xóa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" onclick="location.href='@Url.Action("Delete",new { id = item.MaSP})'" class="btn btn-primary">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </a>
         </text>),
 
- }
- )
+}
+)
 </div>
+<script>
+    let x = document.querySelectorAll(".total");
+    for (let i = 0, len = x.length; i < len; i++) {
+        let num = Number(x[i].innerHTML)
+            .toLocaleString('en');
+        x[i].innerHTML = num + "đ";
+        x[i].classList.add("currSign");
+    }
+</script>

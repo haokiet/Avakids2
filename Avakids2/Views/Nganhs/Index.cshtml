@@ -26,10 +26,34 @@
         grid.Column("TenNganh","Tên ngành hàng"),
         grid.Column("Chức năng", format: @<text>
     <a href="@Url.Action("Edit",new { id = item.MaNganh})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
-    <a href="@Url.Action("Delete",new { id = item.MaNganh})" class="edit-btn">
+    <a class="edit-btn" data-toggle="modal" data-target="#exampleModalCenter">
         <abbr title="Xóa dữ liệu">
             <img src="/images/delete.png" width="20" height="20" />
         </abbr>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-info" id="exampleModalLongTitle">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-warning d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                            <div class="ml-2">
+                                Xác nhận xóa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" onclick="location.href='@Url.Action("Delete",new { id = item.MaNganh})'" class="btn btn-primary">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </a>
         </text>),
 

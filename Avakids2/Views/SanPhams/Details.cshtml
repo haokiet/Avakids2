@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="container-fluid w-50 d-flex justify-content-between p-0">
+<div class="container w-50 d-flex justify-content-between p-0">
     <h4 class="h-50 text-info">@ViewBag.Title</h4>
     <button onclick="location.href='@Url.Action("Index","SanPhams")'" class="btn-single m-0">
         Đóng
     </button>
 </div>
-<div>
+<div class="dl form-horizontal container w-50">
     <hr />
-    <dl class="dl form-horizontal container w-50 d-flex justify-content-between ">
+    <dl class="d-flex justify-content-between ">
         <div class="w-50">
             <img src="~/ProductImages/@Html.DisplayFor(model => model.AnhSP)" width="300" height="300" />
         </div>
@@ -31,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Dongia)
+            @Html.DisplayFor(model => model.Dongia) đ
         </dd>
 
         <dt>
@@ -76,8 +76,3 @@
 </div>
     </dl>
 </div>
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

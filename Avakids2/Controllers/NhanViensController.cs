@@ -116,28 +116,22 @@ namespace Avakids2.Controllers
         // GET: NhanViens/Delete/5
         public ActionResult Delete(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
-            {
-                return HttpNotFound();
-            }
-            return View(nhanVien);
-        }
-
-        // POST: NhanViens/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
             NhanVien nhanVien = db.NhanViens.Find(id);
             db.NhanViens.Remove(nhanVien);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //// POST: NhanViens/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    NhanVien nhanVien = db.NhanViens.Find(id);
+        //    db.NhanViens.Remove(nhanVien);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {
