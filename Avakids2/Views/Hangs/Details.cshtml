@@ -1,17 +1,24 @@
 ﻿@model Avakids2.Models.Hang
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Thông tin hãng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Hang</h4>
+<div class="container-fluid w-50 d-flex justify-content-between p-0">
+    <h4 class="h-50 text-info">@ViewBag.Title</h4>
+    <button onclick="location.href='@Url.Action("Index","Hangs")'" class="btn-single m-0">
+        Đóng
+    </button>
+</div>
+<div class="container w-50">
     <hr />
-    <dl class="dl-horizontal">
+</div>
+<div>
+    <dl class="dl-horizontal container w-50 d-flex justify-content-between">
+        <div class="w-50">
         <dt>
-            @Html.DisplayNameFor(model => model.TenHang)
+            @Html.DisplayName("Tên hãng")
         </dt>
 
         <dd>
@@ -19,32 +26,32 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
+            @Html.DisplayName("Địa chỉ")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.DiaChi)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+        <button onclick="location.href='@Url.Action("Edit","Hangs",new { id = Model.MaHang })'" class="btn-single m-0">
+            Sửa
+        </button>
+</div>
+<div class="w-50">
+    <dt>
+        @Html.DisplayName("Email")
 
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoDT)
-        </dt>
+    <dt>
+        @Html.DisplayName("Số điện thoại")
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoDT)
-        </dd>
-
+    <dd>
+        @Html.DisplayFor(model => model.SoDT)
+    </dd>
+</div>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaHang }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

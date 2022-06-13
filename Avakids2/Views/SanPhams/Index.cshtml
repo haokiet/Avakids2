@@ -3,17 +3,20 @@
 @{
     ViewBag.Title = "Danh sách sản phẩm";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 10);
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenSP", rowsPerPage: 6);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
+
 <h2>@ViewBag.Title</h2>
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-bottom: 10px">
     <div class="row">
-        <button class="btn btn-primary col-1">
-            <i class="fa fa-plus-circle"></i>
-            @Html.ActionLink("Thêm", "Create")
-        </button>
+        <div class="col-1">
+            <button onclick="location.href='@Url.Action("Create","SanPhams")'" class="btn-single">
+                <i class="fa fa-plus-circle"></i>
+                Thêm
+            </button>
+        </div>
         <div class="col-11">
             @using (Html.BeginForm("TimKiem_SanPham", "SanPhams", FormMethod.Get))
             {
@@ -62,7 +65,7 @@
             <img src="/images/delete.png" width="20" height="20" />
         </abbr>
     </a>
-        </text> , canSort: true, style: "CN"),
+        </text>),
 
  }
  )

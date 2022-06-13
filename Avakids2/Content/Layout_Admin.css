@@ -16,6 +16,7 @@ h2 {
     font-family: 'Times New Roman', Times, serif;
 }
 
+
 a abbr img {
     cursor: pointer;
 }
@@ -24,7 +25,9 @@ a {
     color: #fff;
     text-decoration: none;
 }
-
+a:hover{
+    text-decoration: none;
+}
 header {
     background-color: #ed1164;
     display: flex;
@@ -78,10 +81,6 @@ thead {
         color: red;
         pointer-events: none;
     }
-
-.CN {
-    width: 100px;
-}
 
 button {
     margin-top: 15px;

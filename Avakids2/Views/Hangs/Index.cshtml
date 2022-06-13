@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Danh sách hãng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 10);
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 6);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 <h2>@ViewBag.Title</h2>
-<button class="btn-single">
+<button onclick="location.href='@Url.Action("Create","Hangs")'" class="btn-single">
     <i class="fa fa-plus-circle"></i>
-    @Html.ActionLink("Thêm", "Create")
+    Thêm
 </button>
 <div id="gridContent">
     @ViewBag.TB
@@ -35,7 +35,7 @@
             <img src="/images/delete.png" width="20" height="20" />
         </abbr>
     </a>
-        </text>, canSort: true, style: "CN"),
+        </text>),
 
 }
 )

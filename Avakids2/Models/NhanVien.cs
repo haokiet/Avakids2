@@ -11,7 +11,8 @@ namespace Avakids2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class NhanVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,7 +26,9 @@ namespace Avakids2.Models
         public string MatKhau { get; set; }
         public string HoNV { get; set; }
         public string TenNV { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public Nullable<System.DateTime> NgaySinh { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public System.DateTime NgayLamViec { get; set; }
         public string DiaChi { get; set; }
         public Nullable<bool> GioiTinh { get; set; }

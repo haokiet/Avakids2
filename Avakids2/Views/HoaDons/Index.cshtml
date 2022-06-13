@@ -1,58 +1,39 @@
 ﻿@model IEnumerable<Avakids2.Models.HoaDon>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách hóa đơn";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "NgayDatHang", rowsPerPage: 6);
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChiGiaoHang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TinhTrang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayDatHang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KhachHang.HoKH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NhanVien.TenDangNhap)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChiGiaoHang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TinhTrang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayDatHang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KhachHang.HoKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NhanVien.TenDangNhap)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SoHD }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SoHD }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SoHD })
-        </td>
-    </tr>
-}
+<div id="gridContent">
+    @grid.GetHtml(
+        tableStyle: "table table-bordered table-hover",
+        footerStyle: "grid-footer",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.Numeric,
+        alternatingRowStyle: "alternatingRowStyle",
+          columns: new[]  // colums in grid
+         {
+        grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex, canSort: true, style: "STT"),
+        grid.Column("DiaChiGiaoHang","Địa chỉ giao hàng"), //the model fields to display
+        grid.Column("TinhTrang","Tình trạng"),
+        grid.Column("NgayDatHang","Ngày đặt hàng",format:@<text> @item.NgayDatHang.ToString("dd/MM/yyyy")</text>),
+    grid.Column("KhachHang.HoKh","Họ khách hàng"),
+    grid.Column("KhachHang.TenKH","Tên khách hàng"),
+    grid.Column("Chức năng", format: @<text>
+        <a href="@Url.Action("Edit",new { id = item.SoHD})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+        <a href="@Url.Action("Details",new { id = item.SoHD})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+        <a href="@Url.Action("Delete",new { id = item.SoHD})" class="edit-btn">
+            <abbr title="Xóa dữ liệu">
+                <img src="/images/delete.png" width="20" height="20" />
+            </abbr>
+        </a>
+    </text>),
 
-</table>
+    }
+    )
+</div>

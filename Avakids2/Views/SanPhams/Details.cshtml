@@ -1,17 +1,25 @@
 ﻿@model Avakids2.Models.SanPham
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Thông tin sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
-
+<div class="container-fluid w-50 d-flex justify-content-between p-0">
+    <h4 class="h-50 text-info">@ViewBag.Title</h4>
+    <button onclick="location.href='@Url.Action("Index","SanPhams")'" class="btn-single m-0">
+        Đóng
+    </button>
+</div>
 <div>
-    <h4>SanPham</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl form-horizontal container w-50 d-flex justify-content-between ">
+        <div class="w-50">
+            <img src="~/ProductImages/@Html.DisplayFor(model => model.AnhSP)" width="300" height="300" />
+        </div>
+        <div class="w-50">
         <dt>
-            @Html.DisplayNameFor(model => model.TenSP)
+            @Html.DisplayName("Tên sản phẩm")
         </dt>
 
         <dd>
@@ -19,23 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MoTaSP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTaSP)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AnhSP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AnhSP)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dongia)
+            @Html.DisplayName("Đơn giá phẩm")
         </dt>
 
         <dd>
@@ -43,23 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DonViTinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DonViTinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoLuong)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Hang.TenHang)
+            @Html.DisplayName("Hãng")
         </dt>
 
         <dd>
@@ -67,16 +43,40 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nganh.TenNganh)
+            @Html.DisplayName("Ngành")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Nganh.TenNganh)
         </dd>
-         
+
+        <dt>
+            @Html.DisplayName("Đơn vị tính")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số lượng")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mô tả sản phẩm")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTaSP)
+        </dd>
+</div>
     </dl>
 </div>
-<img src="~/ProductImages/@Html.DisplayFor(model => model.AnhSP)" width="300" height="300" />
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
     @Html.ActionLink("Back to List", "Index")

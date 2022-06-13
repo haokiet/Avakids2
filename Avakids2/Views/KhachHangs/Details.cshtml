@@ -1,66 +1,68 @@
 ﻿@model Avakids2.Models.KhachHang
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Thông tin khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>KhachHang</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.HoKH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoKH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenKH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenKH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SoDT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoDT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenDN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatKhau)
-        </dd>
-
-    </dl>
+<div class="container-fluid w-50 d-flex justify-content-between p-0">
+    <h4 class="h-50 text-info">@ViewBag.Title</h4>
+    <button onclick="location.href='@Url.Action("Index","SanPhams",new { id = Model.MaKH})'" class="btn-single m-0">
+        Đóng
+    </button>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKH }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="container w-50">
+    <hr />
+</div>
+    <div class="form-horizontal container-fluid w-50 p-0 d-flex justify-content-between">
+        <div class="w-50">
+            <dt>
+                @Html.DisplayName("Họ khách hàng")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoKH)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Tên khách hàng")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenKH)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Số điện thoại")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoDT)
+            </dd>
+        </div>
+        <div class="w-50">
+            <dt>
+                @Html.DisplayName("Địa chỉ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Tên đăng nhập")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenDN)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Mật khẩu")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MatKhau)
+            </dd>
+        </div>
+    </div>

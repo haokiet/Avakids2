@@ -1,33 +1,24 @@
 ﻿@model Avakids2.Models.NhanVien
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Thông tin nhân viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string gtinh = "";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>NhanVien</h4>
+<div class="container-fluid w-50 d-flex justify-content-between p-0">
+    <h4 class="h-50 text-info">@ViewBag.Title</h4>
+    <button onclick="location.href='@Url.Action("Index","NhanViens")'" class="btn-single m-0">
+        Đóng
+    </button>
+</div>
+<div class="dl-horizontal w-50 container">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDangNhap)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenDangNhap)
-        </dd>
+    <dl class="d-flex justify-content-between">
+        <div class="w-50">
 
         <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatKhau)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HoNV)
+            @Html.DisplayName("Họ nhân viên")
         </dt>
 
         <dd>
@@ -35,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TenNV)
+            @Html.DisplayName("Tên nhân viên")
         </dt>
 
         <dd>
@@ -43,48 +34,67 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NgaySinh)
+            @Html.DisplayName("Giới tính")
+        </dt>
+
+        <dd>
+            @{if (Model.GioiTinh == true)
+                { gtinh = "Nam"; }
+                else
+                { gtinh = "Nữ"; }
+            }
+            @gtinh
+        </dd>
+        <dt>
+            @Html.DisplayName("Ngày sinh")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.NgaySinh)
         </dd>
+        <button onclick="location.href='@Url.Action("Edit","NhanViens",new { id = Model.MaNV })'" class="btn-single m-0">
+            Sửa
+        </button>
+</div>
+<div class="w-50">
+    <dt>
+        @Html.DisplayName("Số điện thoại")
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayLamViec)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SoDT)
+    </dd>
+    <dt>
+        @Html.DisplayName("Ngày làm việc")
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayLamViec)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.NgayLamViec)
+    </dd>
+    <dt>
+        @Html.DisplayName("Tên đăng nhập")
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TenDangNhap)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
+    <dt>
+        @Html.DisplayName("Mật khẩu")
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.MatKhau)
+    </dd>
+    <dt>
+        @Html.DisplayName("Địa chỉ")
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioiTinh)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.DiaChi)
+    </dd>
+</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoDT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoDT)
-        </dd>
-
+     
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNV }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

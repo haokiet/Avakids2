@@ -3,63 +3,36 @@
 @{
     ViewBag.Title = "KHÁCH HÀNG";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenKH", rowsPerPage: 6);
 
 }
 
 <h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.HoKH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenKH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenDN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </th>
-        <th></th>
-    </tr>
+<div id="gridContent">
+    @grid.GetHtml(
+        tableStyle: "table table-bordered table-hover",
+        footerStyle: "grid-footer",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.Numeric,
+        alternatingRowStyle: "alternatingRowStyle",
+          columns: new[]  // colums in grid
+         {
+        grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex, canSort: true, style: "STT"),
+        grid.Column("HoKH","Họ khách hàng"), //the model fields to display
+        grid.Column("TenKH","Tên khách hàng"),
+        grid.Column("SoDT","Số điện thoại"),
+        grid.Column("DiaChi","Địa chỉ"),
+        grid.Column("Chức năng", format: @<text>
+    <a href="@Url.Action("Edit",new { id = item.MaKH})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Details",new { id = item.MaKH})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Delete",new { id = item.MaKH})" class="edit-btn">
+        <abbr title="Xóa dữ liệu">
+            <img src="/images/delete.png" width="20" height="20" />
+        </abbr>
+    </a>
+        </text>),
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenDN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MatKhau)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaKH }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaKH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaKH })
-        </td>
-    </tr>
 }
-
-</table>
+)
+</div>

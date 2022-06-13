@@ -3,16 +3,18 @@
 @{
     ViewBag.Title = "DANH SÁCH NHÂN VIÊN";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 10);
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenNV", rowsPerPage: 6);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 <h2>@ViewBag.Title</h2>
-<div class="container-fluid">
+<div class="container-fluid" style="margin-bottom: 10px">
     <div class="row">
-        <button class="btn btn-primary col-1" height="38">
-            <i class="fa fa-plus-circle"></i>
-            @Html.ActionLink("Thêm", "Create")
-        </button>
+        <div class="col-1">
+            <button onclick="location.href='@Url.Action("Create","NhanViens")'" class="btn-single">
+                <i class="fa fa-plus-circle"></i>
+                Thêm
+            </button>
+        </div>
         <div class="col-11">
             @using (Html.BeginForm("TimKiem_NhanVien", "NhanViens", FormMethod.Get))
             {
@@ -51,9 +53,9 @@
         grid.Column("HoNV","Họ nhân viên"),
         grid.Column("TenNV","Tên nhân viên"),
         grid.Column("GioiTinh","Giới tính",format: (@item) => @item.GioiTinh==true?"Nam":"Nữ", canSort: true, style: "GT"),
-        grid.Column("NgaySinh","Ngày sinh",format:@<text> @item.NgaySinh.ToString("MM/dd/yyyy")</text>),
+        grid.Column("NgaySinh","Ngày sinh",format:@<text> @item.NgaySinh.ToString("dd/MM/yyyy")</text>),
 grid.Column("DiaChi","Địa chỉ"),
-grid.Column("NgayLamViec","Ngày làm việc",format:@<text> @item.NgayLamViec.ToString("MM/dd/yyyy")</text>),
+grid.Column("NgayLamViec","Ngày làm việc",format:@<text> @item.NgayLamViec.ToString("dd/MM/yyyy")</text>),
 grid.Column("Chức năng", format: @<text>
     <a href="@Url.Action("Edit",new { id = item.MaNV})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
     <a href="@Url.Action("Details",new { id = item.MaNV})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
@@ -62,7 +64,7 @@ grid.Column("Chức năng", format: @<text>
             <img src="/images/delete.png" width="20" height="20" />
         </abbr>
     </a>
-</text>, canSort: true, style: "CN"),
+</text>),
 
 }
 )
