@@ -5,30 +5,36 @@
     int sum = 0;
     long tongTien = 0;
     int i = 0;
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 }
 
 <style>
+
+    label{
+        font-size: 16px;
+        font-weight: bold;
+    }
     button a {
         color: white;
     }
 
-    button {
-        height: 30px;
-        background-color: #1E90FF;
-        border-color: #1E90FF;
-        border-radius: 3px;
+    .btn-single {
+        margin-top: 15px;
+        background-color: dodgerblue;
         color: white;
-        margin-bottom: 10px;
+        font-size: 14px;
+        padding: 8px 0px;
+        border: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100px;
+        opacity: 0.9;
     }
 
     input {
         height: 30px;
     }
 
-    table {
-        margin: 0 auto;
-        width: 700px;
-    }
 
     h1 {
         color: #1E90FF;
@@ -66,7 +72,7 @@
 
 <div class="container">
     <h1>@ViewBag.Title</h1>
-    <h3>Thông tin thanh toán</h3>
+    <h3 class="text-info font-weight-bold">Thông tin thanh toán</h3>
     @using (Html.BeginForm("Order", "GioHang", FormMethod.Get))
     {
         <div class="info">
@@ -82,14 +88,12 @@
             <input type="text" name="phone" value="@ViewBag.phone" />
         </div>
 
-
-
-
-        <button style="float: right">
-            @Html.ActionLink("Xóa tất cả", "RemoveAll", "GioHang")
+        <button type="button" onclick="location.href='@Url.Action("RemoveAll","GioHang")'" class="btn-single mb-2 float-right">
+            Xóa tất cả
         </button>
+        
 
-        <table border="1">
+        <table class="w-100 text-center" border="1">
             <tr>
                 <th>STT</th>
                 <th>Tên sản phẩm</th>
@@ -109,7 +113,7 @@
                     <td>
                         @item.name
                     </td>
-                    <td>
+                    <td class="total">
                         @item.price
                     </td>
                     <td>
@@ -117,7 +121,7 @@
                         <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
                             <div class="w3-modal-content w3-animate-zoom">
-                                <img src="~/ProductImages/@item.photo" style="width:100%">
+                                <img src="~/ProductImages/@item.photo" style="width:50%">
                             </div>
                         </div>
                     </td>
@@ -143,10 +147,10 @@
         </table>
 
 
-        <label style="margin-top: 20px; width: 150px; font-size:25px">Tổng tiền: </label><span class="total" style="font-size: 25px">@tongTien</span>
+        <label style="margin-top: 20px; width: 150px; font-size: 20px">Tổng tiền: </label><span class="total" style="font-size: 25px">@tongTien</span>
         <br />
 
-        <button type="submit">Thanh toán</button>
+        <button class="btn-single" type="submit">Đặt hàng</button>
 
     }
 </div>
