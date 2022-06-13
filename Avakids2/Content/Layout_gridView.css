@@ -1,0 +1,28 @@
+﻿.grid-footer {
+    color: #ed1164;
+    font: 17px Calibri;
+    text-align: center;
+    font-weight: bold;
+}
+
+    .grid-footer a {
+        background-color: #ffffff;
+        color: #0069d9;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+        padding: 1px 10px 2px 10px;
+    }
+
+        .grid-footer a:active {
+            background-color: #ffffff;
+            color: #0069d9;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+        }
+
+.alternatingRowStyle {
+    background-color: aliceblue;
+}
+
+#tb {
+    color: blue;
+}
+

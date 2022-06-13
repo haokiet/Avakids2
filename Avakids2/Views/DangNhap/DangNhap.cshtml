@@ -1,13 +1,89 @@
-﻿@{
+﻿
+@{
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <form>
-            <input name="username" type="text" />
-            <input name="password" type="password" />
-            <button class="btn">Login</button>
-        </form>
 
+<style>
+ 
+    .colm-form {
+        flex: 0 0 40%;
+        text-align: center;
     }
+    .form-container {
+        display: block;
+        margin: 20px auto 30px auto;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 300px;
+    }
+
+        .form-container .btn-login, .form-container input {
+            width: 100%;
+            margin: 5px 0;
+            height: 45px;
+            font-size: 16px;
+        }
+
+        .form-container input {
+            border: 1px solid #dddfe2;
+            color: #1d2129;
+            padding: 0 8px;
+            outline: none;
+        }
+
+            input:focus {
+                border-color: #1877f2;
+                box-shadow: 0 0 0 2px #e7f3ff;
+            }
+
+    .btn-login {
+        background-color: #1877f2;
+        border: none;
+        border-radius: 6px;
+        font-size: 20px;
+        padding: 0 16px;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .form-container a {
+        display: block;
+        color: #1877f2;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 10px 0 20px;
+        border-bottom: 1px solid #dadde1;
+    }
+    form-container a:hover {
+        text-decoration: underline;
+    }
+    .form-container .btn-new {
+        background-color: #42b72a;
+        border: none;
+        border-radius: 6px;
+        font-size: 20px;
+        height: 45px;
+        padding: 0 16px;
+        color: #ffffff;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+</style>
+
+
+        @using (Html.BeginForm("DangNhap","DangNhap",FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="colm-form">
+                <div class="form-container">
+                    <input type="text" name="username" placeholder="Tên đăng nhập">
+                    <input type="password" name="password" placeholder="mật khẩu">
+                    <button class="btn-login">Đăng nhập</button>
+                    <a href="#">Quên mật khẩu</a>
+                    <button class="btn-new">Tạo tài khoản</button>
+                </div>
+            </div>
+        }
