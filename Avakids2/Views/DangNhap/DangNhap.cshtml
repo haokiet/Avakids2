@@ -71,9 +71,14 @@
                     <input type="text" name="username" placeholder="Tên đăng nhập">
                     <input type="password" name="password" placeholder="mật khẩu">
                     <button class="btn-login">Đăng nhập</button>
+
                     <button type="button" onclick="location.href='@Url.Action("DangKy","DangNhap")'" class="btn-single btn-new">
                         Đăng ký
                     </button>
+
+                    <a href="#">Quên mật khẩu</a>
+                    <button onclick="location.href='@Url.Action("DangKy","DangNhap")'" class="btn-new">Tạo tài khoản</button>
+
                 </div>
             </div>
         }
