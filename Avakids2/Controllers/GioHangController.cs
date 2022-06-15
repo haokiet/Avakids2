@@ -195,9 +195,13 @@ namespace Avakids2.Controllers
                     db.CTHoaDons.Add(cthd);
                 }
                 db.SaveChanges();
-                return RedirectToAction("Index", "CTHoaDons");
+                return RedirectToAction("OrderSuscess", "GioHang");
             }
             return View(db.HoaDons.ToList());
+        }
+        public ActionResult OrderSuscess()
+        {
+            return View();
         }
     }
 }
