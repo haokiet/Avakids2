@@ -11,7 +11,7 @@
         Đóng
     </button>
 </div>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "SanPhams", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

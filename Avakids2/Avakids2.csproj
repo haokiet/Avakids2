@@ -416,7 +416,6 @@
     <Content Include="Views\CTHoaDons\Index.cshtml" />
     <Content Include="Views\HoaDons\Create.cshtml" />
     <Content Include="Views\HoaDons\Delete.cshtml" />
-    <Content Include="Views\HoaDons\Details.cshtml" />
     <Content Include="Views\HoaDons\Edit.cshtml" />
     <Content Include="Views\HoaDons\Index.cshtml" />
     <Content Include="Views\KhachHangs\Create.cshtml" />

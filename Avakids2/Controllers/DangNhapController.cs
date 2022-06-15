@@ -84,9 +84,11 @@ namespace Avakids2.Controllers
         {
             if (ModelState.IsValid)
             {
+                Random rnd = new Random();
+                khachHang.MaKH = "KH" + DateTime.Now.ToString("ddMM") + rnd.Next(1, 999);
                 db.KhachHangs.Add(khachHang);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("DangNhap","DangNhap");
             }
 
             return View(khachHang);
