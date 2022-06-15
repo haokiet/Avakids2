@@ -60,8 +60,16 @@ namespace Avakids2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaSP,MaHang,MaNganh,TenSP,MoTaSP,AnhSP,Dongia,DonViTinh,SoLuong")] SanPham sanPham)
         {
+            var imgNV = Request.Files["Avatar"];
+            //Lấy thông tin từ input type=file có tên Avatar
+            string postedFileName = System.IO.Path.GetFileName(imgNV.FileName);
+            //Lưu hình đại diện về Server
+            var path = Server.MapPath("/ProductImages/" + postedFileName);
+            imgNV.SaveAs(path);
+
             if (ModelState.IsValid)
             {
+                sanPham.AnhSP = postedFileName;
                 db.SanPhams.Add(sanPham);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -108,6 +116,17 @@ namespace Avakids2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaSP,MaHang,MaNganh,TenSP,MoTaSP,AnhSP,Dongia,DonViTinh,SoLuong")] SanPham sanPham)
         {
+            var imgNV = Request.Files["Avatar"];
+            try
+            {
+                //Lấy thông tin từ input type=file có tên Avatar
+                string postedFileName = System.IO.Path.GetFileName(imgNV.FileName);
+                //Lưu hình đại diện về Server
+                var path = Server.MapPath("/ProductImages/" + postedFileName);
+                imgNV.SaveAs(path);
+            }
+            catch
+            { }
             if (ModelState.IsValid)
             {
                 db.Entry(sanPham).State = EntityState.Modified;
@@ -128,17 +147,6 @@ namespace Avakids2.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        // POST: SanPhams/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(string id)
-        //{
-        //    SanPham sanPham = db.SanPhams.Find(id);
-        //    db.SanPhams.Remove(sanPham);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         protected override void Dispose(bool disposing)
         {

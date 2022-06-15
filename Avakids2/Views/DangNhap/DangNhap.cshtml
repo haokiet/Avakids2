@@ -49,17 +49,6 @@
         font-weight: 700;
     }
 
-    .form-container a {
-        display: block;
-        color: #1877f2;
-        font-size: 14px;
-        text-decoration: none;
-        padding: 10px 0 20px;
-        border-bottom: 1px solid #dadde1;
-    }
-    form-container a:hover {
-        text-decoration: underline;
-    }
     .form-container .btn-new {
         background-color: #42b72a;
         border: none;
@@ -82,8 +71,9 @@
                     <input type="text" name="username" placeholder="Tên đăng nhập">
                     <input type="password" name="password" placeholder="mật khẩu">
                     <button class="btn-login">Đăng nhập</button>
-                    <a href="#">Quên mật khẩu</a>
-                    <button class="btn-new">Tạo tài khoản</button>
+                    <button type="button" onclick="location.href='@Url.Action("DangKy","DangNhap")'" class="btn-single btn-new">
+                        Đăng ký
+                    </button>
                 </div>
             </div>
         }

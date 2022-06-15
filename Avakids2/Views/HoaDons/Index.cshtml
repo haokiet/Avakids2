@@ -25,13 +25,8 @@
 grid.Column("KhachHang.HoKh","Họ khách hàng"),
 grid.Column("KhachHang.TenKH","Tên khách hàng"),
 grid.Column("Chức năng", format: @<text>
-            <a href="@Url.Action("Edit",new { id = item.SoHD})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
-            <a href="@Url.Action("Details",new { id = item.SoHD})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
-            <a href="@Url.Action("Delete",new { id = item.SoHD})" class="edit-btn">
-                <abbr title="Xóa dữ liệu">
-                    <img src="/images/delete.png" width="20" height="20" />
-                </abbr>
-            </a>
+            <a href="@Url.Action("Edit",new { id = item.SoHD})" class="edit-btn"><abbr title="Cập nhật"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+            
 </text>),
 
 }

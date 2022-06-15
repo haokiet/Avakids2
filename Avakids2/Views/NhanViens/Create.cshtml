@@ -46,10 +46,11 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.NgaySinh, "Ngày sinh", htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                    <input class="form-control" type="date" name="NgayDatHang">
                     @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                 </div>
             </div>
+            
             <div class="form-group1">
                 @Html.LabelFor(model => model.GioiTinh, "Giới tính", htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class="col-md-10">
@@ -61,21 +62,23 @@
 
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <button type="submit" value="Create" class="btn-single">Thêm</button>
                 </div>
             </div>
+
         </div>
         <div class="w-50">
-
             <div class="form-group">
                 @Html.LabelFor(model => model.NgayLamViec, "Ngày làm việc", htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NgayLamViec, new { htmlAttributes = new { @class = "form-control" } })
+                    <input class="form-control" type="date" name="NgayDatHang">
                     @Html.ValidationMessageFor(model => model.NgayLamViec, "", new { @class = "text-danger" })
                 </div>
             </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.SoDT, "Số điện thoại", htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class="col-md-10">

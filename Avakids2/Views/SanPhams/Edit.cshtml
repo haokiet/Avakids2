@@ -2,27 +2,29 @@
 @{
     ViewBag.Title = "Cập nhật sản phẩm";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var fileupload = $("#Avatar");
+            var image = $("#FileUpload");
+            image.click(function () {
+                fileupload.click();
+            });
+            fileupload.change(function () {
+                var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
+                document.getElementById("HinhAnhMH").value = fileName;
+            });
+        });
+    </script>
 }
-<script type="text/javascript">
-    $(function () {
-        var fileupload = $("#Avatar");
-        var image = $("#FileUpload");
-        image.click(function () {
-            fileupload.click();
-        });
-        fileupload.change(function () {
-            var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
-            document.getElementById("HinhAnhMH").value = fileName;
-        });
-    });
-</script>
+
 <div class="container-fluid w-50 d-flex justify-content-between p-0">
     <h4 class="h-50 text-info">@ViewBag.Title</h4>
     <button onclick="location.href='@Url.Action("Index","SanPhams")'" class="btn-single m-0">
         Đóng
     </button>
 </div>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "SanPhams", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

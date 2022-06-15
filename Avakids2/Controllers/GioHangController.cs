@@ -85,7 +85,7 @@ namespace Avakids2.Controllers
                 Session[CartSession] = list;
             }
 
-            return RedirectToAction("Index", "GioHang", db.SanPhams);
+            return RedirectToAction("Index", "HomePage", db.SanPhams);
         }
         public ActionResult addQuantity(string id, string a)
         {
@@ -187,7 +187,7 @@ namespace Avakids2.Controllers
 
                 foreach (var item in list)
                 {
-                    var cthd = new CTHoaDon();
+                    CTHoaDon cthd = new CTHoaDon();
                     cthd.SoHD = hoaDon.SoHD;
                     cthd.MaSP = item.id;
                     cthd.SoLuong = item.quantity;
@@ -195,7 +195,7 @@ namespace Avakids2.Controllers
                     db.CTHoaDons.Add(cthd);
                 }
                 db.SaveChanges();
-                return View();
+                return RedirectToAction("Index", "CTHoaDons");
             }
             return View(db.HoaDons.ToList());
         }

@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Cập nhật nhân viên";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string ngayLV = Model.NgayLamViec.ToString("yyyy-MM-dd");
+    string ngaySN = Convert.ToDateTime(Model.NgaySinh).ToString("yyyy-MM-dd");
 }
 
 <div class="container-fluid w-50 d-flex justify-content-between p-0">
@@ -15,7 +17,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 </div>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","NhanViens",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -47,7 +49,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.NgaySinh, "Ngày sinh", htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                    <input class="form-control" value="@ngaySN" type="date" name="NgaySinh">
                     @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -64,16 +66,16 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn-single">Thêm</button>
+                    <button type="submit" class="btn-single">Lưu</button>
                 </div>
             </div>
         </div>
         <div class="w-50">
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NgayLamViec, "Ngày làm việc", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.LabelFor(model => model.NgayLamViec, "Ngày đặt hàng", htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NgayLamViec, new { htmlAttributes = new { @class = "form-control" } })
+                    <input class="form-control" value="@ngayLV" type="date" name="NgayDatHang">
                     @Html.ValidationMessageFor(model => model.NgayLamViec, "", new { @class = "text-danger" })
                 </div>
             </div>

@@ -103,6 +103,20 @@ namespace Avakids2.Controllers
             return View(hoaDon);
         }
 
+        //public ActionResult UpdateStatus(string id, string tinhTrang)
+        //{
+        //    var hoaDon = new HoaDon() { SoHD = id, TinhTrang = tinhTrang};
+        //    using (var db = new AVAKIDEntities2())
+        //    {
+        //        db.HoaDons.Attach(hoaDon);
+        //        db.Entry(hoaDon).Property(x => x.TinhTrang).IsModified = true;
+        //        db.SaveChanges();
+        //    }
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+           
+        //}
+
         // GET: HoaDons/Delete/5
         public ActionResult Delete(string id)
         {
